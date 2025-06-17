@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Conectando al chat... 💬</title>
+</head>
+<body>
+  <h2>Conectando con tu persona especial... 💘</h2>
+  <script>
+    fetch("current_url.json")
+      .then(res => res.json())
+      .then(data => {
+        if (data.url) {
+          window.location.href = data.url;
+        } else {
+          document.body.innerHTML = "<h3>Error: No hay URL 😥</h3>";
+        }
+      })
+      .catch(() => {
+        document.body.innerHTML = "<h3>Error de conexión 💔</h3>";
+      });
+  </script>
+</body>
+</html>
